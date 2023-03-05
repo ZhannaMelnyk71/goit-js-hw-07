@@ -2,11 +2,7 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 console.log(galleryItems);
-    //   <ul >
-    //     <li>
-    //       <img src="" alt="" width="" height="">
-    //     </li>
-    //   </ul>
+
 
 const galleryContainer = document.querySelector('.gallery')
 
@@ -36,6 +32,19 @@ function createGalleryMarkup (items){
 } 
 
 function handlerContainerClick(event) {
-    console.log(event.target)
-    
+    // console.log(event.target)
+    event.preventDefault();
+
+    if (event.target.nodeName !== "IMG") {
+        return;
 }
+    const largeImageRef = event.target.dataset.source
+    // console.log(largeImageRef)
+
+    const openLargeImage = basicLightbox.create(`
+//     <img src="${largeImageRef}" width="800" height="600">
+// `)
+    openLargeImage.show()
+
+}
+
