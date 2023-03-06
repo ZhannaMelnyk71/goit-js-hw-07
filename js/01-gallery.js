@@ -12,6 +12,8 @@ galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
 
 galleryContainer.addEventListener('click', handlerContainerClick);
 
+// galleryContainer.addEventListener('keydown', handlerContainerClickOpenModal)
+
 
 function createGalleryMarkup (items){
     const markup = items.map(({ preview, original, description }) => {
@@ -46,5 +48,15 @@ function handlerContainerClick(event) {
 // `)
     openLargeImage.show()
 
+    galleryContainer.addEventListener('keydown', closeModalEsc)
+
+    function closeModalEsc(event) {
+    if (event.code === "Escape") {
+        openLargeImage.close();
+    }
 }
+}
+
+
+
 
